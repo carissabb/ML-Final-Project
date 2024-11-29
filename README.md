@@ -41,4 +41,4 @@ This repository possess an application that users can to predict their own obesi
     ### python main.py
 
 5. To launch the application, type the following command:
-    ### streamlit run chatui.py
+    ### streamlit run app.py
