@@ -8,17 +8,16 @@ from openai import OpenAI
 app = Flask(__name__)
 
 client = OpenAI(api_key="YOUR OPENAI API KEY HERE")  # Replace with your actual OpenAI API key
-# Load pre-trained model, encoders, and scalers (you should train and save these earlier)
-# Example: Load the RandomForest model, encoder, and scaler from files
-# You need to replace these paths with the actual file locations
 
-random_forest = joblib.load('models/obesity_prediction_model.pkl')# Example: Load the trained RandomForest model
+# Load pre-trained model, encoders, and scalers (obtained from RandomForestClassifier.ipynb)
 
-encoder = joblib.load('models/numerical_encoder.pkl') # Example: Load the trained encoder
+random_forest = joblib.load('models/obesity_prediction_model.pkl')# Load the trained RandomForest model
 
-scaler = joblib.load("models/scaler.pkl")  # Example: Load the trained scaler
+encoder = joblib.load('models/numerical_encoder.pkl') # Load the trained numerical encoder
 
-ordinances = joblib.load("models/ordinal_encoder.pkl")  # Example: Load the trained scaler
+scaler = joblib.load("models/scaler.pkl")  # Load the trained scaler
+
+ordinances = joblib.load("models/ordinal_encoder.pkl")  # Load the trained ordinal encoder
 # Define prediction route
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -26,7 +25,7 @@ def predict():
     user_data = request.get_json()
 
     if 'NObeyesdad' not in user_data:
-        user_data['NObeyesdad'] = 'Insufficient_Weight'  # Default value if not provided
+        user_data['NObeyesdad'] = 'Insufficient_Weight'  # Default value if not provided, ensures all data is provided
         
         
     # Convert the user data into a pandas DataFrame
@@ -68,7 +67,6 @@ def map_prediction_to_level(prediction):
     }
     return levels.get(prediction, "Unknown")
 
-# Helper function to generate personalized advice based on obesity level
 # Helper function to generate personalized advice based on obesity level
 def generate_advice(obesity_level):
     try:

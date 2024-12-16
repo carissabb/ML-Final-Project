@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 
 # Backend URL (ensure this matches the Flask backend's URL)
-backend_url = "http://127.0.0.1:5000/predict"  # Using 127.0.0.1 instead of localhost for consistency
+backend_url = "http://127.0.0.1:5000/predict"
 
 
 # Streamlit app title
