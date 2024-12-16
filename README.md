@@ -21,24 +21,45 @@
     TARGET FEATURE:
     - NObeyesdad	Obesity level
 
+## Model Generation  
+**Note:** These steps are optional for running the application, as it already uses the `.pkl` files in the **`models`** folder, which are considered up-to-date with the current state of the model.  
 
-## Application
+To train the random forest classifier, open the `.ipynb` file titled **`RandomForestClassifier.ipynb`**. This notebook contains the necessary code to run and evaluate the model, as well as save its state for use in the application. After executing all cells in the notebook, four `.pkl` files will be generated. These files represent the model's current state, along with the necessary scalers and encoders.  
 
-This repository possess an application that users can to predict their own obesity level. The model will classify their obesity level and will provide the user with a detailed guide to either maintaining their current obesity level, or reccomendations for reducing their obesity levels. 
+If you need the latest version of these `.pkl` files for your application, replace the current `.pkl` files in the **`models`** folder with the newly created ones.  
 
 
-## Application Usage:
-1. The user needs to go to https://openai.com to create an api user account and generate an api key for the project.
-    ### The user may need to provide some money in order to effectively use the api, 5 dollars is more than enough
+---
 
-2. Once the api is created, navigate to main.py and replace "YOUR OPENAI API KEY HERE" with their own key.
+## Application  
 
-3. The user needs to install the necessary requirements by going to the terminal in putting in the command:
+This repository includes an application that predicts a user's obesity level based on their input. The model classifies their obesity level and provides a detailed guide for maintaining their current level or recommendations for reducing it.  
 
-    ### pip install -r requirements.txt
+---
 
-4. The user needs to run the local back end by running:
-    ### python main.py
+## Application Usage  
 
-5. To launch the application, type the following command:
-    ### streamlit run app.py
+1. **Create an OpenAI API Key:**  
+   Visit [https://openai.com](https://openai.com) to create an API user account and generate an API key for the project.  
+   - *Note:* You may need to deposit a small amount (e.g., $5), which is sufficient for this project.
+
+2. **Set Your API Key:**  
+   Navigate to **`main.py`** and replace `"YOUR OPENAI API KEY HERE"` with your API key.
+
+3. **Install Dependencies:**  
+   Open a terminal and run the following command:  
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Run the Backend:**  
+   Start the local backend by running:  
+   ```bash
+   python main.py
+   ```
+
+5. **Launch the Application:**  
+   Use the following command to start the application:  
+   ```bash
+   streamlit run app.py
+   ```  
